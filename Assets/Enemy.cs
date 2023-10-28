@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [Header("Properties")]
-    public int maxHealth;
+    public int maxHealth = 100;
 
     [Header("KnockBack Settings")]
     public float delay = 0.15f;
@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     [Header("Camera Shake")]
     public float shake_Duration = 0.1f;
     public float shake_Magnitude = .05f;
-    private Camera_Shake camShake;
+    protected Camera_Shake camShake;
 
     [Header("Debug")]
     public int currentHealth;

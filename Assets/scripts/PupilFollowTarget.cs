@@ -6,6 +6,7 @@ public class PupilFollowTarget : MonoBehaviour
 {
     public Transform eye;
     public Transform target;
+    public float lookSpeed;
 
     // Update is called once per frame
     // When this gameobject becomes active, this will follow the target.
@@ -13,7 +14,9 @@ public class PupilFollowTarget : MonoBehaviour
     {
         Vector3 to = target.position - eye.position;
 
-        eye.right = Vector3.RotateTowards(eye.right, to, 100f * Time.deltaTime, 100);
+        eye.right = Vector3.RotateTowards(eye.right, to, lookSpeed * Time.deltaTime, 0) ;
+
+       
 
     }
 }

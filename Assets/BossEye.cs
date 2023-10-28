@@ -5,13 +5,19 @@ using UnityEngine;
 public class BossEye : Enemy
 {
 
+    [Header("Boss Timing")]
+    public float idleTime = 3f;
+    public float lazorChargingTime = 3f;
+    public float shootingTime = 3f;
+    public float recoveryTime = 3f;
 
-    public float idleTime;
-    public float lazorChargingTime;
-    public float shootingTime;
-    public float recoveryTime;
 
 
+    public Transform lazorCharge;
+    public Transform lazorBeam;
+
+    public float lazorShakeDuration = 6f;
+    public float lazorShakeMaq = .4f;
 
     [Header("Debug")]
     public float idle_Timer;
@@ -19,29 +25,33 @@ public class BossEye : Enemy
     public float shooting_Timer;
     public float recovery_Timer;
 
-    public states currentState;
+    public states currentState = states.Idle;
 
     public enum states
     {
         Idle,
         Charging,
         Shooting,
-        Damaged
+        Recovering
     }
 
     private Animator anim;
     
-        private void Start()
+     private void Start()
     {
         anim = GetComponent<Animator>();
 
 
-        idle_Timer = idleTime;
+         //idle_Timer = idleTime;
          lazorCharging_Timer = lazorChargingTime;
          shooting_Timer = shootingTime;
          recovery_Timer = recoveryTime;
 
-}
+        currentState = states.Idle;
+        currentHealth = maxHealth;
+        camShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera_Shake>();
+
+    }
 
 
 
@@ -63,12 +73,10 @@ public class BossEye : Enemy
             }
             else
             {
-
+                Debug.Log("Charging");
+                anim.SetTrigger("Charge");
+                currentState = states.Charging;
             }
-
-
-
-
         }
         else if (currentState == states.Charging)
         {
@@ -83,7 +91,9 @@ public class BossEye : Enemy
             }
             else
             {
-
+                Debug.Log("Shooting");
+                anim.SetTrigger("Shoot");
+                currentState = states.Shooting;
             }
 
         }
@@ -95,7 +105,7 @@ public class BossEye : Enemy
             //Deal damage to ship
 
             // player lose immediately?
-
+           
 
             //Not sure if we need this but just in case
             if (shooting_Timer > 0)
@@ -105,9 +115,10 @@ public class BossEye : Enemy
             else
             {
                 // Player loses!
+                Debug.Log("DONE SHOOTING U DEAD");
             }
         }
-        else if (currentState == states.Damaged)
+        else if (currentState == states.Recovering)
         {
             // play damaged/recovery animation (sway back and forth??)
             // count down from recoveryTimer
@@ -120,14 +131,13 @@ public class BossEye : Enemy
             }
             else
             {
-
+                Debug.Log("Idle");
+                anim.SetTrigger("Idle");
+                currentState = states.Idle;
 
             }
 
         }
-
-
-
 
     }
 
@@ -139,6 +149,14 @@ public class BossEye : Enemy
     // 2. Charging
     // 3. Shooting
     // 4. Damaged/Recovering
+
+    public void LazorShake()
+    {
+        
+            StartCoroutine(camShake.Shake(lazorShakeDuration, lazorShakeMaq));
+        Debug.Log("Shakeeee");
+
+    }
 
 
 }
