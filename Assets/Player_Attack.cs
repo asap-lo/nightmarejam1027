@@ -85,7 +85,7 @@ public class Player_Attack : MonoBehaviour
         {
             Debug.Log("Hit Enemy");
 
-            collision.gameObject.GetComponent<Enemy>().TakeDamange(attackDamage, this.transform, attackKnockback);
+            collision.gameObject.GetComponentInParent<Enemy>().TakeDamange(attackDamage, this.transform, attackKnockback);
             pc.ExecutePickJump();
         }
     }
