@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.156992, b: 0, a: 0.89411765}
+  m_Color: {r: 0.48523378, g: 0, b: 1, a: 0.89411765}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -364,7 +364,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.90588236}
+  m_Color: {r: 0.48064613, g: 0, b: 1, a: 0.90588236}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -521,6 +521,7 @@ MonoBehaviour:
   shooting_Timer: 0
   recovery_Timer: 0
   currentState: 0
+  startBoss: 0
 --- !u!114 &8135246645422942547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,7 +536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashMaterial: {fileID: 2100000, guid: 8d0f743333c924c3b830cdad1f185004, type: 2}
   duration: 0.125
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 2518863479156341535}
 --- !u!95 &7606598685078425264
 Animator:
   serializedVersion: 5
@@ -632,7 +633,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.12919617, a: 0}
+  m_Color: {r: 0.3671732, g: 0, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
