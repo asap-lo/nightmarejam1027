@@ -169,7 +169,7 @@ namespace TarodevController
             _jumpToConsume = false;
         }
 
-        private void ExecuteJump()
+        public void ExecuteJump()
         {
             _endedJumpEarly = false;
             _timeJumpWasPressed = 0;
@@ -178,6 +178,27 @@ namespace TarodevController
             _frameVelocity.y = _stats.JumpPower;
             Jumped?.Invoke();
         }
+
+        public void ExecutePickJump()
+        {
+            _endedJumpEarly = false;
+            _timeJumpWasPressed = 0;
+            _bufferedJumpUsable = false;
+            _coyoteUsable = false;
+            _frameVelocity.y = _stats.PickJumpPower;
+            Jumped?.Invoke();
+        }
+
+        public void ExecuteCustomJump(float customForce)
+        {
+            _endedJumpEarly = false;
+            _timeJumpWasPressed = 0;
+            _bufferedJumpUsable = false;
+            _coyoteUsable = false;
+            _frameVelocity.y = customForce;
+            Jumped?.Invoke();
+        }
+
 
         #endregion
 
