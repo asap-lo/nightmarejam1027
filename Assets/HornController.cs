@@ -6,6 +6,7 @@ public class HornController : MonoBehaviour
 {
     public bool ready;
     private Animator animator;
+    public LayerMask hitbox;
 
     private void Start()
     {
@@ -15,7 +16,10 @@ public class HornController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (ready)
-            if (collision != null) // Change to the player mask thing
-                return; //Do success trigger
+            if ((hitbox.value & (1 << collision.gameObject.layer)) > 0) // Change to the hitbox for pickaxe mask thing
+            {
+                animator.SetTrigger("Success");
+                animator.SetInteger("Count", animator.GetInteger("Count") + 1);
+            }
     }
 }
