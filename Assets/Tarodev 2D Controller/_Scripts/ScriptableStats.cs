@@ -37,6 +37,10 @@ namespace TarodevController
 
         [Header("JUMP")] [Tooltip("The immediate velocity applied when jumping")]
         public float JumpPower = 36;
+        [Header("JUMP")]
+
+        [Tooltip("The immediate velocity applied doing Pick Jump on eye")]
+        public float PickJumpPower = 22;
 
         [Tooltip("The maximum vertical movement speed")]
         public float MaxFallSpeed = 40;

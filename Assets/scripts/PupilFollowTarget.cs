@@ -11,7 +11,9 @@ public class PupilFollowTarget : MonoBehaviour
     // When this gameobject becomes active, this will follow the target.
     void LateUpdate()
     {
-        eye.LookAt(Vector3.forward, Vector3.Cross(Vector3.forward, target.position));
-        
+        Vector3 to = target.position - eye.position;
+
+        eye.right = Vector3.RotateTowards(eye.right, to, 100f * Time.deltaTime, 100);
+
     }
 }
