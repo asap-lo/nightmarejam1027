@@ -13,9 +13,9 @@ TagManager:
   - UI
   - Player
   - Enemy
+  - Attack_Collider
   - 
-  - 
-  - 
+  - Spike
   - 
   - 
   - 
