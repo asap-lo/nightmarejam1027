@@ -27,6 +27,7 @@ public class BossEye : Enemy
 
     public states currentState = states.Idle;
 
+    public bool startBoss = false;
     public enum states
     {
         Idle,
@@ -42,7 +43,7 @@ public class BossEye : Enemy
         anim = GetComponent<Animator>();
 
 
-         //idle_Timer = idleTime;
+         //
          lazorCharging_Timer = lazorChargingTime;
          shooting_Timer = shootingTime;
          recovery_Timer = recoveryTime;
@@ -57,6 +58,10 @@ public class BossEye : Enemy
 
     private void Update()
     {
+        if (!startBoss)
+        {
+            return;
+        }
 
         if (currentState == states.Idle)
         {
@@ -158,5 +163,11 @@ public class BossEye : Enemy
 
     }
 
+    public void StartBoss()
+    {
 
+        startBoss = true;
+
+        idle_Timer = idleTime;
+    }
 }
