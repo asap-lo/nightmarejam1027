@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
 
     protected SpriteRenderer spriteRenderer;
     protected Rigidbody2D rb;
-
+    protected Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
         currentHealth = maxHealth;
 
         camShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera_Shake>();
+        anim = GetComponent<Animator>();
     }
 
     #region Public Methods
@@ -50,6 +51,9 @@ public class Enemy : MonoBehaviour
         }
 
         flashEffect.Flash(); // Flash Sprite
+       // StartCoroutine(Shake(0.1f, 0.05f));
+
+        anim.SetTrigger("Hit");
         //Knockback_FeedBack(damageSource, knockback);
         if (camShake != null)
         {
