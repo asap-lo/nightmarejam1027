@@ -40,6 +40,8 @@ namespace TarodevController
         private void OnEnable()
         {
             _player.Jumped += OnJumped;
+            _player.Attacked += OnAttacked;
+
             _player.GroundedChanged += OnGroundedChanged;
 
             _moveParticles.Play();
@@ -96,7 +98,15 @@ namespace TarodevController
                 SetColor(_launchParticles);
                 _jumpParticles.Play();
             }
+
         }
+
+        private void OnAttacked()
+        {
+            _anim.SetTrigger(AttackKey);
+      
+        }
+
 
         private void OnGroundedChanged(bool grounded, float impact)
         {
@@ -139,5 +149,6 @@ namespace TarodevController
         private static readonly int GroundedKey = Animator.StringToHash("Grounded");
         private static readonly int IdleSpeedKey = Animator.StringToHash("IdleSpeed");
         private static readonly int JumpKey = Animator.StringToHash("Jump");
+        private static readonly int AttackKey = Animator.StringToHash("Attack");
     }
 }

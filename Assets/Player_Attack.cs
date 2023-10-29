@@ -13,7 +13,9 @@ public class Player_Attack : MonoBehaviour
 
     public float attackDelay = 1f;
     public float attackDuration = 0.1f;
-    
+
+    public float pickJump = 10f;
+
    
     [Header("Debug")]
     public bool canAttack = true;
@@ -98,7 +100,7 @@ public class Player_Attack : MonoBehaviour
         delayTimer = attackDelay;
 
         attackCollider.gameObject.SetActive(true);
-        pc.ExecuteCustomJump(5);
+        pc.ExecuteAttack(pickJump);
 
     }
 

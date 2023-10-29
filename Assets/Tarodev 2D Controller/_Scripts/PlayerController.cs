@@ -28,6 +28,7 @@ namespace TarodevController
         public Vector2 FrameInput => _frameInput.Move;
         public event Action<bool, float> GroundedChanged;
         public event Action Jumped;
+        public event Action Attacked;
 
         #endregion
 
@@ -179,6 +180,7 @@ namespace TarodevController
             Jumped?.Invoke();
         }
 
+      
         public void ExecutePickJump()
         {
             _endedJumpEarly = false;
@@ -189,7 +191,7 @@ namespace TarodevController
             Jumped?.Invoke();
         }
 
-        public void ExecuteCustomJump(float customForce)
+        public void ExecuteAttack(float customForce)
         {
             _endedJumpEarly = false;
             _timeJumpWasPressed = 0;
@@ -197,6 +199,7 @@ namespace TarodevController
             _coyoteUsable = false;
             _frameVelocity.y = customForce;
             Jumped?.Invoke();
+            Attacked?.Invoke();
         }
 
 
@@ -259,6 +262,7 @@ namespace TarodevController
         public event Action<bool, float> GroundedChanged;
 
         public event Action Jumped;
+        public event Action Attacked;
         public Vector2 FrameInput { get; }
     }
 
