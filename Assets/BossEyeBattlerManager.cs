@@ -37,6 +37,7 @@ public class BossEyeBattlerManager : MonoBehaviour
                 if (nextRound)
                 { 
                     SpawnEyes();
+                    nextRound = false;
                 }
               
             }
@@ -63,7 +64,8 @@ public class BossEyeBattlerManager : MonoBehaviour
             Debug.Log("i : " + i);
             BossEye g = Instantiate(bossEyePrefab, spawnPos[i] , Quaternion.identity, this.transform);
             g.GetComponent<PupilFollowTarget>().target = pupilFollow;
-            g.idleTime = startDelay + i;
+            g.idleTime = startDelay;
+            startDelay += 1;
             g.StartBoss();
            
         }

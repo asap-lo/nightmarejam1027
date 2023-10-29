@@ -47,8 +47,13 @@ namespace TarodevController
         void Start()
         {
             enableInput();
-            GameEventSystem.current.onPauseGame += disableInput;
-            GameEventSystem.current.onResumeGame += enableInput;
+            //null check the following two lines
+            if (GameEventSystem.current != null)
+            {
+                GameEventSystem.current.onPauseGame += disableInput;
+                GameEventSystem.current.onResumeGame += enableInput;
+
+            }
 
         }
 

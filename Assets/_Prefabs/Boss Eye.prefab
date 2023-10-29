@@ -514,8 +514,6 @@ MonoBehaviour:
   recoveryTime: 3
   lazorCharge: {fileID: 0}
   lazorBeam: {fileID: 0}
-  lazorShakeDuration: 6
-  lazorShakeMaq: 0.4
   idle_Timer: 0
   lazorCharging_Timer: 0
   shooting_Timer: 0

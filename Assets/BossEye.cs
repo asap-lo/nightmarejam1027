@@ -16,8 +16,6 @@ public class BossEye : Enemy
     public Transform lazorCharge;
     public Transform lazorBeam;
 
-    public float lazorShakeDuration = 6f;
-    public float lazorShakeMaq = .4f;
 
     [Header("Debug")]
     public float idle_Timer;
@@ -36,7 +34,6 @@ public class BossEye : Enemy
         Recovering
     }
 
-    private Animator anim;
     
      private void Start()
     {
@@ -120,6 +117,7 @@ public class BossEye : Enemy
             else
             {
                 // Player loses!
+                // EXPLODE SHIP AND FADE TO BLACK
                 Debug.Log("DONE SHOOTING U DEAD");
             }
         }
@@ -155,13 +153,13 @@ public class BossEye : Enemy
     // 3. Shooting
     // 4. Damaged/Recovering
 
-    public void LazorShake()
-    {
-        
-            StartCoroutine(camShake.Shake(lazorShakeDuration, lazorShakeMaq));
-        Debug.Log("Shakeeee");
+//    public void LazorShake()
+//    {
+  //      
+    //        StartCoroutine(camShake.Shake(lazorShakeDuration, lazorShakeMaq));
+      //  Debug.Log("Shakeeee");
 
-    }
+ //   }
 
     public void StartBoss()
     {
