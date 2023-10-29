@@ -25,6 +25,8 @@ public class Player_Attack : MonoBehaviour
 
     PlayerController pc;
 
+    Camera_Shake camShake;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,7 @@ public class Player_Attack : MonoBehaviour
         durationTimer = attackDuration;
         delayTimer = attackDelay;
         pc.GroundedChanged += OnGroundedChanged;
+        camShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera_Shake>();
     }
 
     // Update is called once per frame
@@ -72,7 +75,7 @@ public class Player_Attack : MonoBehaviour
             //stop attack
             canAttack = true;
 
-            attackCollider.gameObject.SetActive(false);
+           // attackCollider.gameObject.SetActive(false);
         }
     
 
@@ -87,6 +90,8 @@ public class Player_Attack : MonoBehaviour
         {
             Debug.Log("Hit Enemy");
 
+            //screenshake
+
             collision.gameObject.GetComponentInParent<Enemy>().TakeDamange(attackDamage, this.transform, attackKnockback);
             pc.ExecutePickJump();
         }
@@ -99,8 +104,9 @@ public class Player_Attack : MonoBehaviour
         durationTimer = attackDuration;
         delayTimer = attackDelay;
 
-        attackCollider.gameObject.SetActive(true);
+       // attackCollider.gameObject.SetActive(true);
         pc.ExecuteAttack(pickJump);
+        
 
     }
 

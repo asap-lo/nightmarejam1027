@@ -17,7 +17,7 @@ public class CameraFollow : MonoBehaviour
 
     private void Awake()
     {
-        cam = GetComponent<Camera>();
+        cam = GetComponentInChildren<Camera>();
     }
     private void FixedUpdate()
     {

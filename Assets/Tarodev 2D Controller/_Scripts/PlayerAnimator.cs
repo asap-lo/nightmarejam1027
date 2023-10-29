@@ -31,12 +31,18 @@ namespace TarodevController
         private bool _grounded;
         private ParticleSystem.MinMaxGradient _currentGradient;
 
+        public GameObject attack_collider;
+     
+    
         private void Awake()
         {
             _source = GetComponent<AudioSource>();
             _player = GetComponentInParent<IPlayerController>();
         }
-
+        private void Start()
+        {
+     
+        }
         private void OnEnable()
         {
             _player.Jumped += OnJumped;
@@ -70,7 +76,30 @@ namespace TarodevController
 
         private void HandleSpriteFlip()
         {
-            if (_player.FrameInput.x != 0) _sprite.flipX = _player.FrameInput.x < 0;
+            if (_player.FrameInput.x != 0)
+            {
+
+                
+                if (_player.FrameInput.x < 0)
+                {
+                    _sprite.flipX = true;
+
+
+
+                    attack_collider.transform.localScale = new Vector3(-1, 1, 1);
+                }
+                else {
+                    _sprite.flipX = false;
+
+                    attack_collider.transform.localScale = Vector3.one;
+
+                }
+                
+              
+
+
+            }
+                
         }
 
         private void HandleIdleSpeed()
