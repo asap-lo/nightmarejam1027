@@ -33,7 +33,6 @@ public class BossEye : Enemy
         Shooting,
         Recovering
     }
-
     
      private void Start()
     {

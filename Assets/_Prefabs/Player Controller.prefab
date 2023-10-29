@@ -34658,7 +34658,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5d94063f45167b04ab62585e436da58c, type: 3}
   - {fileID: 8300000, guid: b5803c17557c59c40bf3a6d69cb46cb3, type: 3}
   - {fileID: 8300000, guid: 1876767bf7cbf284394dc3817af9593c, type: 3}
-  attack_collider: {fileID: 5308820289110799875}
+  attack_collider: {fileID: 6086658958296206366}
 --- !u!1 &9014521690990918495
 GameObject:
   m_ObjectHideFlags: 0

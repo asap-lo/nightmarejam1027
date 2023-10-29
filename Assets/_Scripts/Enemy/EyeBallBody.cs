@@ -24,9 +24,22 @@ public class EyeBallBody : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
+
+        for (int i = 1; i < segmentPoses.Length; i++)
+        {
+            segmentPoses[i] = Vector3.zero;
+        }
+
+        //lineRend.useWorldSpace = true;
+
+        lineRend.SetPositions(segmentPoses);
+
         lineRend.positionCount = length;
         segmentPoses = new Vector3[length];
         segmentV = new Vector3[length];
+        StartCoroutine("ActivateLine");
+
     }
 
     // Update is called once per frame
@@ -43,4 +56,17 @@ public class EyeBallBody : MonoBehaviour
 
         lineRend.SetPositions(segmentPoses);
     }
+
+
+    IEnumerator ActivateLine()
+    {
+        int counter = 3;
+        while (counter > 0)
+        {
+            yield return new WaitForSeconds(1);
+            counter--;
+        }
+        lineRend.useWorldSpace = true;
+    }
+
 }
