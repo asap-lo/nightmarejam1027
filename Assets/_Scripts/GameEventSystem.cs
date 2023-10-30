@@ -22,6 +22,10 @@ public class GameEventSystem : MonoBehaviour
 
     public static void OnRespawnPlayer() => RespawnPlayer?.Invoke();
 
+    public static event UnityAction BossOver;
+
+    public static void OnBossOver() => BossOver?.Invoke();
+
 
 
     private void Start()

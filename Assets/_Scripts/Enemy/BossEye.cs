@@ -13,10 +13,6 @@ public class BossEye : Enemy
 
 
 
-    public Transform lazorCharge;
-    public Transform lazorBeam;
-
-
     [Header("Debug")]
     public float idle_Timer;
     public float lazorCharging_Timer;
@@ -50,7 +46,22 @@ public class BossEye : Enemy
 
     }
 
+    public override void TakeDamange(int amount, Transform damageSource, float knockback)
+    {
+        //Die is called from the an anim event
+        anim.SetTrigger("Recover");
+       
 
+      
+       
+        //Knockback_FeedBack(damageSource, knockback);
+        if (camShake != null)
+        {
+            StartCoroutine(camShake.Shake(shake_Duration, shake_Magnitude));
+        }
+
+    
+}
 
     private void Update()
     {
@@ -118,28 +129,13 @@ public class BossEye : Enemy
                 // Player loses!
                 // EXPLODE SHIP AND FADE TO BLACK
                 Debug.Log("DONE SHOOTING U DEAD");
+
+
+
+                GameEventSystem.OnBossOver();
             }
         }
-        else if (currentState == states.Recovering)
-        {
-            // play damaged/recovery animation (sway back and forth??)
-            // count down from recoveryTimer
-
-            //transition to idle or wait for next wave ??
-
-            if (recoveryTime > 0)
-            {
-                recoveryTime -= Time.deltaTime;
-            }
-            else
-            {
-                Debug.Log("Idle");
-                anim.SetTrigger("Idle");
-                currentState = states.Idle;
-
-            }
-
-        }
+      
 
     }
 

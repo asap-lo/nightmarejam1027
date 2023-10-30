@@ -9895,7 +9895,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 7479
-  deathParticle: {fileID: 0}
+  deathParticle: {fileID: 4058284570465714351}
 --- !u!50 &7221720102090478700
 Rigidbody2D:
   serializedVersion: 4

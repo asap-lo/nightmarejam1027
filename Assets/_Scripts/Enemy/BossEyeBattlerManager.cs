@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+
+using UnityEngine.SceneManagement;
 public class BossEyeBattlerManager : MonoBehaviour
 {
 
@@ -25,6 +27,7 @@ public class BossEyeBattlerManager : MonoBehaviour
     public int numEyesInRound;
     public int numEyesLeft;
 
+    public bool playerDead = false;
     private void Start()
     {
 
@@ -37,10 +40,31 @@ public class BossEyeBattlerManager : MonoBehaviour
 
         NextRound += NextRoundMethod;
 
-
+        GameEventSystem.BossOver += PlayerDeath;
+     
         StartCoroutine("StartBossDelay");
     }
 
+
+    void PlayerDeath()
+    {
+        if (playerDead == false)
+        {
+            Debug.Log("active scene" + SceneManager.GetActiveScene().name);
+
+            StartCoroutine("RestartLevel");
+            playerDead = true;
+        }
+       
+
+       
+    }
+
+    void Restart()
+    {
+
+
+    }
 
     void StartRound()
     {
@@ -105,15 +129,20 @@ public class BossEyeBattlerManager : MonoBehaviour
         for (int i = 0; i < spawnPos.Count; i++)
         {
             Debug.Log("i : " + i);
-            BossEye g = Instantiate(bossEyePrefab, spawnPos[i].position , Quaternion.identity, this.transform);
-            g.GetComponent<PupilFollowTarget>().target = pupilFollow;
-            g.idleTime = i;
-                    g.StartBoss();
-            numEyesLeft++;
+
+            if (transform != null)
+            {
+                BossEye g = Instantiate(bossEyePrefab, spawnPos[i].position, Quaternion.identity, gameObject.transform);
+                g.GetComponent<PupilFollowTarget>().target = pupilFollow;
+                g.idleTime = i;
+                g.StartBoss();
+                numEyesLeft++;
+            }
+           
            
         }
 
-        currentRound++;
+       
     }
 
 
@@ -141,7 +170,30 @@ public class BossEyeBattlerManager : MonoBehaviour
 
 
 
+    private void OnDestroy()
+    {
+        StartBoss -= StartRound;
+        KillLazer -= onLazerKilled;
 
+
+        FinishBoss -= FinishBossMethod;
+
+        NextRound -= NextRoundMethod;
+
+        GameEventSystem.BossOver -= PlayerDeath;
+    }
+
+    IEnumerator RestartLevel()
+    {
+        int counter = 3;
+        while (counter > 0)
+        {
+            yield return new WaitForSeconds(1);
+            counter--;
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+    }
 
     IEnumerator StartBossDelay()
     {

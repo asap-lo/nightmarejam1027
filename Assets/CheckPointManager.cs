@@ -21,6 +21,12 @@ public class CheckPointManager : MonoBehaviour
         GameEventSystem.IncreaseCheckpoint += IncreaseCheckPoint;
     }
 
+    private void OnDestroy()
+    {
+        GameEventSystem.PlayerDeath -= respawnPlayer;
+
+        GameEventSystem.IncreaseCheckpoint -= IncreaseCheckPoint;
+    }
 
     public void respawnPlayer()
     {

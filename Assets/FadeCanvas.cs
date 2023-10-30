@@ -15,14 +15,23 @@ public class FadeCanvas : MonoBehaviour
         gameObject.SetActive(true);
 
         GameEventSystem.PlayerDeath += FadeOut;
+        GameEventSystem.BossOver += FadeOut;
         GameEventSystem.GameStart += FadeIn;
 
         GameEventSystem.RespawnPlayer += FadeIn;
 
     }
 
-   
 
+    private void OnDestroy()
+    {
+        GameEventSystem.PlayerDeath -= FadeOut;
+        GameEventSystem.BossOver -= FadeOut;
+        GameEventSystem.GameStart -= FadeIn;
+
+        GameEventSystem.RespawnPlayer -= FadeIn;
+
+    }
 
     void FadeOut()
     {

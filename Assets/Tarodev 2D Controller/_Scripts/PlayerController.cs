@@ -61,6 +61,13 @@ namespace TarodevController
         }
 
 
+        private void OnDestroy()
+        {
+            GameEventSystem.PlayerDeath -= PlayerDeath;
+            GameEventSystem.GameStart -= enableInput;
+            GameEventSystem.RespawnPlayer -= PlayerRespawn;
+
+        }
         private void Update()
         {
             _time += Time.deltaTime;
