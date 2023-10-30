@@ -97,7 +97,23 @@ public class Player_Attack : MonoBehaviour
         }
     }
 
-    
+  
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 10)
+        {
+            //hit spike: die
+
+            GameEventSystem.OnPlayerDeath();
+
+            Debug.Log("Hit SPike!");
+
+        }
+
+        Debug.Log("yeee!");
+    }
+
 
     void Attack()
     {

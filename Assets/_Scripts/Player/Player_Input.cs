@@ -17,8 +17,8 @@ public class Player_Input : MonoBehaviour
     private void Start()
     {
         enableInput();
-        GameEventSystem.current.onPauseGame += disableInput;
-        GameEventSystem.current.onResumeGame += enableInput;
+//        GameEventSystem.current.onPauseGame += disableInput;
+  //      GameEventSystem.current.onResumeGame += enableInput;
 
     }
 

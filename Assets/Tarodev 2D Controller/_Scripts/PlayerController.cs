@@ -49,12 +49,7 @@ namespace TarodevController
             //layerMask = ~_stats.PlayerLayer | ~_stats.EnemyLayer;
             enableInput();
             //null check the following two lines
-            if (GameEventSystem.current != null)
-            {
-                GameEventSystem.current.onPauseGame += disableInput;
-                GameEventSystem.current.onResumeGame += enableInput;
-
-            }
+            
 
         }
 
