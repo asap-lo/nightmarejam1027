@@ -36,9 +36,12 @@ public class Player_Attack : MonoBehaviour
         durationTimer = attackDuration;
         delayTimer = attackDelay;
         pc.GroundedChanged += OnGroundedChanged;
+
+        
         //camShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera_Shake>();
     }
 
+    
     // Update is called once per frame
     void Update()
     {
@@ -107,11 +110,11 @@ public class Player_Attack : MonoBehaviour
 
             GameEventSystem.OnPlayerDeath();
 
-            Debug.Log("Hit SPike!");
+            
 
         }
 
-        Debug.Log("yeee!");
+       
     }
 
 

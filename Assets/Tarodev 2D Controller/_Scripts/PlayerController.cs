@@ -34,6 +34,10 @@ namespace TarodevController
 
         private float _time;
         public LayerMask layerMask;
+
+
+        public ParticleSystem deathParticle;
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
@@ -49,8 +53,11 @@ namespace TarodevController
             //layerMask = ~_stats.PlayerLayer | ~_stats.EnemyLayer;
             enableInput();
             //null check the following two lines
-            
 
+            GameEventSystem.PlayerDeath += PlayerDeath;
+            GameEventSystem.GameStart += enableInput;
+            GameEventSystem.RespawnPlayer += PlayerRespawn;
+            
         }
 
 
@@ -65,7 +72,24 @@ namespace TarodevController
          
         }
 
+        void PlayerDeath()
+        {
+            disableInput();
 
+            GetComponentInChildren<SpriteRenderer>().enabled = false;
+           // deathParticle.gameObject.SetActive(true);
+            deathParticle.Play();
+        }
+
+
+
+
+        void PlayerRespawn()
+        {
+            enableInput();
+            GetComponentInChildren<SpriteRenderer>().enabled = true;
+            //deathParticle.gameObject.SetActive(false);
+        }
 
         void disableInput()
         {
@@ -137,7 +161,7 @@ namespace TarodevController
                 _endedJumpEarly = false;
                 GroundedChanged?.Invoke(true, Mathf.Abs(_frameVelocity.y));
 
-                Debug.Log("Landed!!!!");
+                
             }
             // Left the Ground
             else if (_grounded && !groundHit)

@@ -13,6 +13,16 @@ public class GameEventSystem : MonoBehaviour
 
     public static void OnGameStart() => GameStart?.Invoke();
 
+    public static event UnityAction IncreaseCheckpoint;
+
+    public static void OnIncreaseCheckpoint() => IncreaseCheckpoint?.Invoke();
+
+
+    public static event UnityAction RespawnPlayer;
+
+    public static void OnRespawnPlayer() => RespawnPlayer?.Invoke();
+
+
 
     private void Start()
     {
