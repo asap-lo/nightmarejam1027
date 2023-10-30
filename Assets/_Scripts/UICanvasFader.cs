@@ -23,8 +23,8 @@ public class UICanvasFader : MonoBehaviour
 
     void Start()
     {
-        GameEventSystem.current.onStartMenu += FadeIn;
-        GameEventSystem.current.onPlayGame += FadeOut;
+//        GameEventSystem.current.onStartMenu += FadeIn;
+  //      GameEventSystem.current.onPlayGame += FadeOut;
     }
     public void FadeIn()
     {

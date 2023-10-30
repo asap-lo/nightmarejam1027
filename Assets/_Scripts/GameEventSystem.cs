@@ -12,7 +12,7 @@ public class GameEventSystem : MonoBehaviour
     }
 
 
-    public event Action onStartMenu;
+    public static event Action onStartMenu;
     public void StartMenu()
     {
         Debug.Log("Start  asdasdmnenu");

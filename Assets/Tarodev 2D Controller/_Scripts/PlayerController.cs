@@ -33,7 +33,7 @@ namespace TarodevController
         #endregion
 
         private float _time;
-
+        public LayerMask layerMask;
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
@@ -46,6 +46,7 @@ namespace TarodevController
 
         void Start()
         {
+            //layerMask = ~_stats.PlayerLayer | ~_stats.EnemyLayer;
             enableInput();
             //null check the following two lines
             if (GameEventSystem.current != null)
@@ -123,9 +124,11 @@ namespace TarodevController
         {
             Physics2D.queriesStartInColliders = false;
 
+            
+
             // Ground and Ceiling
-            bool groundHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.down, _stats.GrounderDistance, ~_stats.PlayerLayer | ~_stats.EnemyLayer);
-            bool ceilingHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _stats.GrounderDistance, ~_stats.PlayerLayer | ~_stats.EnemyLayer);
+            bool groundHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.down, _stats.GrounderDistance, layerMask);
+            bool ceilingHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _stats.GrounderDistance, layerMask);
 
             // Hit a Ceiling
             if (ceilingHit) _frameVelocity.y = Mathf.Min(0, _frameVelocity.y);
@@ -138,6 +141,8 @@ namespace TarodevController
                 _bufferedJumpUsable = true;
                 _endedJumpEarly = false;
                 GroundedChanged?.Invoke(true, Mathf.Abs(_frameVelocity.y));
+
+                Debug.Log("Landed!!!!");
             }
             // Left the Ground
             else if (_grounded && !groundHit)

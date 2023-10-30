@@ -9764,6 +9764,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 05e6a06c5af93134ab98ff12e2c27265, type: 2}
   EnableInput: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 7479
 --- !u!50 &7221720102090478700
 Rigidbody2D:
   serializedVersion: 4
@@ -9842,9 +9845,9 @@ MonoBehaviour:
   attackButton: 32
   attackDamage: 1
   attackKnockback: 1
-  attackDelay: 1
+  attackDelay: 0.5
   attackDuration: 0.1
-  pickJump: 10
+  pickJump: 3
   canAttack: 1
   _grounded: 0
   durationTimer: 0
@@ -19784,9 +19787,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1092886267
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 04e3e1ad7ff634cdba569a739189ce31, type: 3}
   m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_FlipX: 0
