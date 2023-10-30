@@ -522,7 +522,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7175922259123855086, guid: 9cb44c1f0f0f541cf91e14f803b657f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.87
+      value: -5.88
       objectReference: {fileID: 0}
     - target: {fileID: 7175922259123855086, guid: 9cb44c1f0f0f541cf91e14f803b657f8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2696,11 +2696,13 @@ MonoBehaviour:
     - {fileID: 824297579}
     - {fileID: 1232171480}
   bossEyePrefab: {fileID: 4765136808621463958, guid: 94de3f5fc986c45158eb0ac2d94d0886, type: 3}
-  startDelay: 3
   numberOfRounds: 3
   currentRound: 0
-  nextRound: 0
   pupilFollow: {fileID: 258491551}
+  startBossDelay: 3
+  StopFight: 0
+  numEyesInRound: 0
+  numEyesLeft: 0
 --- !u!4 &1876378328
 Transform:
   m_ObjectHideFlags: 0
