@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1201349069970459895}
   - component: {fileID: 1895582104330317049}
   m_Layer: 0
-  m_Name: Layer-1
+  m_Name: Layer-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -331,6 +331,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5853077560867417818}
+  - {fileID: 6421155362468782502}
   - {fileID: 2311677958121406654}
   - {fileID: 1201349069970459895}
   - {fileID: 5506836834939444646}
@@ -362,7 +364,7 @@ GameObject:
   - component: {fileID: 5506836834939444646}
   - component: {fileID: 1224515964015619145}
   m_Layer: 0
-  m_Name: Layer-2
+  m_Name: Layer-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -495,7 +497,7 @@ GameObject:
   - component: {fileID: 2311677958121406654}
   - component: {fileID: 7864055374826871156}
   m_Layer: 0
-  m_Name: Layer-0
+  m_Name: Layer-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -513,9 +515,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6421155362468782502}
-  - {fileID: 5853077560867417818}
+  m_Children: []
   m_Father: {fileID: 6993791578678169171}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7864055374826871156
@@ -562,7 +562,7 @@ Transform:
   m_LocalScale: {x: 0.31941, y: 0.31941, z: 0.31941}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2311677958121406654}
+  m_Father: {fileID: 6993791578678169171}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6989600158800576996
 SpriteRenderer:
@@ -1328,10 +1328,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.5, y: 3.3, z: 0}
-  m_LocalScale: {x: 94.42382, y: 3.2063851, z: 1}
+  m_LocalScale: {x: 94.42382, y: 5.21, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2311677958121406654}
+  m_Father: {fileID: 6993791578678169171}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2901310228789501298
 SpriteRenderer:
@@ -1396,7 +1396,7 @@ GameObject:
   - component: {fileID: 659406299318297467}
   - component: {fileID: 6596680598391621723}
   m_Layer: 0
-  m_Name: Layer-3
+  m_Name: Layer-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
