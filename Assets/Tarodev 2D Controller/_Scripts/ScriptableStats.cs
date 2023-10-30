@@ -7,6 +7,7 @@ namespace TarodevController
     {
         [Header("LAYERS")] [Tooltip("Set this to the layer your player is on")]
         public LayerMask PlayerLayer;
+        public LayerMask EnemyLayer;
 
         [Header("INPUT")] [Tooltip("Makes all Input snap to an integer. Prevents gamepads from walking slowly. Recommended value is true to ensure gamepad/keybaord parity.")]
         public bool SnapInput = true;
@@ -22,6 +23,7 @@ namespace TarodevController
 
         [Tooltip("The player's capacity to gain horizontal speed")]
         public float Acceleration = 120;
+        public float AirAcceleration = 10;
 
         [Tooltip("The pace at which the player comes to a stop")]
         public float GroundDeceleration = 60;

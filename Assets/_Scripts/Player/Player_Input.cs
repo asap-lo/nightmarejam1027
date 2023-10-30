@@ -33,12 +33,7 @@ public class Player_Input : MonoBehaviour
         //If accepting input
         if (EnableInput)
         {
-            if (Input.GetKeyDown(attackKey))
-            {
-             
-                // Attack here
-
-            }
+          
 
             //get arrow key input float
             player_Motor.inputDir.x = Input.GetAxisRaw("Horizontal");
