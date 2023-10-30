@@ -81,7 +81,7 @@ public class Enemy : MonoBehaviour
     #region Helper Methods
 
 
-    protected virtual void Die()
+    public virtual void Die()
     {
       //  GameObject particle = Instantiate(deathParticlesPrefab, this.transform.position, Quaternion.identity);
         //Destroy(particle, 2);

@@ -144,7 +144,17 @@ public class BossEye : Enemy
     }
 
 
+    public override void Die()
+    {
 
+        Debug.Log("Enemy Died!");
+        //GameEventSystem.current.EnemyDeath();
+
+        Destroy(this.gameObject);
+
+        BossEyeBattlerManager.OnKillLazer();
+
+    }
     // states
 
     // 1. Idle
@@ -152,13 +162,13 @@ public class BossEye : Enemy
     // 3. Shooting
     // 4. Damaged/Recovering
 
-//    public void LazorShake()
-//    {
-  //      
+    //    public void LazorShake()
+    //    {
+    //      
     //        StartCoroutine(camShake.Shake(lazorShakeDuration, lazorShakeMaq));
-      //  Debug.Log("Shakeeee");
+    //  Debug.Log("Shakeeee");
 
- //   }
+    //   }
 
     public void StartBoss()
     {
