@@ -11,10 +11,10 @@ public class Player_Attack : MonoBehaviour
     public int attackDamage = 1;
     public float attackKnockback = 1;
 
-    public float attackDelay = 1f;
+    public float attackDelay = .4f;
     public float attackDuration = 0.1f;
 
-    public float pickJump = 10f;
+    public float pickJump = 2f;
 
    
     [Header("Debug")]
@@ -25,7 +25,7 @@ public class Player_Attack : MonoBehaviour
 
     PlayerController pc;
 
-    Camera_Shake camShake;
+   // Camera_Shake camShake;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +36,7 @@ public class Player_Attack : MonoBehaviour
         durationTimer = attackDuration;
         delayTimer = attackDelay;
         pc.GroundedChanged += OnGroundedChanged;
-        camShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera_Shake>();
+        //camShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera_Shake>();
     }
 
     // Update is called once per frame
